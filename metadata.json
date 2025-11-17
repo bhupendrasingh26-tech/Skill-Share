@@ -1,0 +1,5 @@
+{
+  "name": "SkillShare P2P Platform",
+  "description": "A peer-to-peer skill sharing web application where users can post problems or skills they need help with, and connect with others who can provide assistance. The app features AI-powered suggestions for post creation to streamline the process.",
+  "requestFramePermissions": ["camera", "microphone"]
+}
