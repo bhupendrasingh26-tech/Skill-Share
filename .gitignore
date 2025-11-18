@@ -30,3 +30,14 @@ server/.env
 # Build artifacts
 build
 coverage
+
+
+BACKEND_ARCHITECTURE.md
+# Documentation
+**/README*
+docs/
+documentation/
+**/docs/**
+**/*.[mM][dD]
+**/*.[pP][dD][fF]
+**/*.[dD][oO][cC][xX]

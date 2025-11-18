@@ -44,7 +44,11 @@ export const apiClient = {
         headers: apiClient.getHeaders(false),
         body: JSON.stringify({ email, password, name }),
       });
-      return response.json();
+      const data = await response.json();
+      if (data.token) {
+        localStorage.setItem('authToken', data.token);
+      }
+      return data;
     },
 
     login: async (email: string, password: string) => {

@@ -247,6 +247,16 @@ const App: React.FC = () => {
     setView('feed');
   };
 
+  const ensureAuthenticated = useCallback(() => {
+    const token = apiClient.getToken();
+    if (!token) {
+      alert('Your session has expired. Please log in again.');
+      handleLogout();
+      return false;
+    }
+    return true;
+  }, [handleLogout]);
+
   // --- Profile Handlers ---
   const handleStartEditProfile = () => {
       setView('editProfile');
@@ -318,6 +328,7 @@ const App: React.FC = () => {
   // --- Post and Profile Handlers ---
   const handleSavePost = async (postData: Omit<Post, 'id' | 'author' | 'createdAt'>, postId?: string) => {
     if (!currentUser) return;
+    if (!ensureAuthenticated()) return;
 
     try {
       if (postId) {
